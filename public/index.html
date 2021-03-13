@@ -1,0 +1,125 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TypeScript Tutorial</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+
+
+  <div class="wrapper">
+    <h1>CREDIT CARD LOGGER</h1>
+  </div>
+
+
+  <div class="container-fluid">
+
+    <!-- Row -->
+    <div class="row">
+
+      <!-- Title -->
+      <div class="col-4">
+        <div class="container-fluid d-flex justify-content-center">
+          <h3>Add New Card</h3>
+        </div>
+
+        <!-- Card -->
+        <div>
+          <div class="row">
+            <div class="container-fluid d-flex justify-content-center">
+              <div>
+                <div class="card">
+                  <div class="card-header">
+                    <div class="row">
+                      <div class="col-md-6"> <span>CREDIT/DEBIT CARD PAYMENT</span> </div>
+                      <div class="col-md-6 text-right" style="margin-top: -5px;"> <img
+                          src="https://img.icons8.com/color/36/000000/visa.png"> <img
+                          src="https://img.icons8.com/color/36/000000/mastercard.png">
+                      </div>
+                    </div>
+                  </div>
+
+                  <form class="new-item-form">
+                    <div class="card-body" style="height: 350px">
+                      <div class="form-group"> <label for="cc-number" class="control-label">CARD NUMBER</label> <input
+                          id="cc-number" type="number" class="input-lg form-control cc-number" autocomplete="cc-number"
+                          placeholder="•••• •••• •••• ••••" required> </div>
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group"> <label for="cc-exp" class="control-label">CARD EXPIRY</label> <input
+                              id="cc-exp" type="number" class="input-lg form-control cc-exp" autocomplete="cc-exp"
+                              placeholder="•• / ••" required> </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group"> <label for="cc-cvc" class="control-label">CARD CVC</label> <input
+                              id="cc-cvc" type="number" class="input-lg form-control cc-cvc" autocomplete="off"
+                              placeholder="••••" required> </div>
+                        </div>
+                      </div>
+                      <div class="form-group"> <label for="numeric" class="control-label">CARD HOLDER NAME</label>
+                        <input id="cc-holder-name" type="text" class="input-lg form-control">
+                      </div>
+                      <button class="btn btn-success btn-lg form-control" style="font-size: .8rem;">SAVE CARD</button>
+
+                      <!-- <div class="form-group"> <input value="MAKE PAYMENT" type="button"
+                          class="btn btn-success btn-lg form-control" style="font-size: .8rem;">
+                        <button>Add</button>
+
+                      </div> -->
+
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+      <!-- Table space -->
+      <div class="col-8">
+
+        <div class="container-fluid d-flex justify-content-center">
+          <h3>Card List</h3>
+        </div>
+        No card added
+
+
+        <div class="col-8 container-fluid justify-content-center">
+          <!-- output list -->
+          <ul class="item-list"></ul>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  </div>
+
+
+
+
+
+
+
+
+  <script type="module" src='app.js'></script>
+
+  <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script> -->
+</body>
+
+</html>
