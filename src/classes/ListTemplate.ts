@@ -25,4 +25,14 @@ export class ListTemplate {
       this.container.append(li);
     }
   }
+
+  clear() {
+    let x = this.container
+
+    while (this.container.firstChild) {
+      console.log(`First Child ${this.container}`)
+      this.container.firstChild.remove()
+    }
+
+  }
 }

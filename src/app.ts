@@ -2,26 +2,27 @@ import { Card } from './classes/Card.js';
 import { ListTemplate } from './classes/ListTemplate.js';
 import { HasFormatter } from './interfaces/HasFormatter.js';
 
-console.log(`obkm`);
-
-
 const form = document.querySelector('.new-item-form') as HTMLFormElement;
 
-console.log(`form: ${form}`);
 
 // inputs
 const cardNumber = document.querySelector('#cc-number') as HTMLInputElement;
 const cardExpiry = document.querySelector('#cc-exp') as HTMLInputElement;
 const cardCvc = document.querySelector('#cc-cvc') as HTMLInputElement;
 const cardHolderName = document.querySelector('#cc-holder-name') as HTMLInputElement;
+const noCardAdded = document.querySelector('#no-card-added') as HTMLHeadingElement;
+const clear = document.querySelector('#clear-list') as HTMLHeadingElement;
+noCardAdded.style.display = "block"
+clear.style.display = "none"
 
-console.log(`cardNumber: ${cardNumber}`);
-console.log(`cardExpiry: ${cardExpiry}`);
-console.log(`cardCvc: ${cardCvc}`);
-console.log(`cardHolderName: ${cardHolderName}`);
+console.log(`noCardAdded: ${noCardAdded.textContent}`);
+// console.log(`clear: ${clear.textContent}`);
+
 // list template instance
 const ul = document.querySelector('ul')!;
 const list = new ListTemplate(ul);
+
+var listOfCards: HasFormatter[] = [];
 
 form.addEventListener('submit', (e: Event) => {
   e.preventDefault();
@@ -29,10 +30,31 @@ form.addEventListener('submit', (e: Event) => {
   let values: [string, number, number, number];
   values = [cardNumber.value, cardExpiry.valueAsNumber, cardCvc.valueAsNumber, cardHolderName.valueAsNumber];
 
+  listOfCards.push(new Card(...values))
+
+  if (!clear.hidden) {
+    clear.style.display = "block"
+  }
+
+  if (noCardAdded.style.display == "block") {
+    noCardAdded.style.display = "none";
+  }
+
+
   let doc: HasFormatter;
 
   doc = new Card(...values);
 
   list.render(doc, CardType.MASTER, 'end');
+
+});
+
+
+clear.addEventListener('click', (e: Event) => {
+  listOfCards = [];
+  list.clear();
+  clear.style.display = "none"
+  noCardAdded.style.display = "block"
+  console.log("List Cleared")
 });
 
