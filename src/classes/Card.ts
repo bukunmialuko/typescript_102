@@ -3,13 +3,24 @@ import { HasFormatter } from '../interfaces/HasFormatter.js';
 export class Card implements HasFormatter {
   constructor(
     private name: string,
-    private number: number,
-    private expiry: number,
-    private cvc: number,
+    private number: string,
+    private expiry: string,
+    private cvc: string,
 
   ) { }
 
   format() {
-    return `name ${this.name} number ${this.number} expiry ${this.expiry} cvc ${this.cvc}`;
+    return `NAME: ${this.name} \n NUMBER: ${this.number} \n EXPIRY: ${this.expiry} \n CVC: ${this.cvc}`;
   }
+
+  getCardType() {
+    if (this.number.charAt(0) === "5") {
+      return CardType.MASTER;
+    } else if (this.number.charAt(0) === "4") {
+      return CardType.VISA;
+    } else {
+      return CardType.UNKNOWN;
+    }
+  }
+
 }

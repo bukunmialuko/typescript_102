@@ -27,8 +27,8 @@ var listOfCards: HasFormatter[] = [];
 form.addEventListener('submit', (e: Event) => {
   e.preventDefault();
 
-  let values: [string, number, number, number];
-  values = [cardNumber.value, cardExpiry.valueAsNumber, cardCvc.valueAsNumber, cardHolderName.valueAsNumber];
+  let values: [string, string, string, string];
+  values = [cardHolderName.value, cardNumber.value, cardExpiry.value, cardCvc.value];
 
   listOfCards.push(new Card(...values))
 
@@ -40,12 +40,8 @@ form.addEventListener('submit', (e: Event) => {
     noCardAdded.style.display = "none";
   }
 
-
-  let doc: HasFormatter;
-
-  doc = new Card(...values);
-
-  list.render(doc, CardType.MASTER, 'end');
+  let card = new Card(...values);
+  list.render(card, 'end');
 
 });
 

@@ -1,4 +1,5 @@
 const enum CardType {
     MASTER,
-    VISA
+    VISA,
+    UNKNOWN,
 }

@@ -1,16 +1,20 @@
-import { HasFormatter } from "../interfaces/HasFormatter";
+import { Card } from "../classes/Card";
 
 export class ListTemplate {
+
   constructor(private container: HTMLUListElement) { }
 
-  render(item: HasFormatter, cardType: CardType, pos: 'start' | 'end') {
+  render(item: Card, pos: 'start' | 'end') {
     const li = document.createElement('li');
 
     const h4 = document.createElement('h4');
-    if (cardType == CardType.MASTER) {
-      h4.innerText = "Master";
+
+    if (item.getCardType() === CardType.MASTER) {
+      h4.innerText = "Master Card";
+    } else if (item.getCardType() === CardType.VISA) {
+      h4.innerText = "Visa card";
     } else {
-      h4.innerText = "Visa";
+      h4.innerText = "Unknown card type";
     }
 
     li.append(h4);

@@ -19,7 +19,7 @@ var listOfCards = [];
 form.addEventListener('submit', (e) => {
     e.preventDefault();
     let values;
-    values = [cardNumber.value, cardExpiry.valueAsNumber, cardCvc.valueAsNumber, cardHolderName.valueAsNumber];
+    values = [cardHolderName.value, cardNumber.value, cardExpiry.value, cardCvc.value];
     listOfCards.push(new Card(...values));
     if (!clear.hidden) {
         clear.style.display = "block";
@@ -27,9 +27,8 @@ form.addEventListener('submit', (e) => {
     if (noCardAdded.style.display == "block") {
         noCardAdded.style.display = "none";
     }
-    let doc;
-    doc = new Card(...values);
-    list.render(doc, 0 /* MASTER */, 'end');
+    let card = new Card(...values);
+    list.render(card, 'end');
 });
 clear.addEventListener('click', (e) => {
     listOfCards = [];

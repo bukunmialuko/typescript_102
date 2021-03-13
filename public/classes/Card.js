@@ -6,6 +6,17 @@ export class Card {
         this.cvc = cvc;
     }
     format() {
-        return `name ${this.name} number ${this.number} expiry ${this.expiry} cvc ${this.cvc}`;
+        return `NAME: ${this.name} \n NUMBER: ${this.number} \n EXPIRY: ${this.expiry} \n CVC: ${this.cvc}`;
+    }
+    getCardType() {
+        if (this.number.charAt(0) === "5") {
+            return 0 /* MASTER */;
+        }
+        else if (this.number.charAt(0) === "4") {
+            return 1 /* VISA */;
+        }
+        else {
+            return 2 /* UNKNOWN */;
+        }
     }
 }

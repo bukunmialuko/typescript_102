@@ -2,14 +2,17 @@ export class ListTemplate {
     constructor(container) {
         this.container = container;
     }
-    render(item, cardType, pos) {
+    render(item, pos) {
         const li = document.createElement('li');
         const h4 = document.createElement('h4');
-        if (cardType == 0 /* MASTER */) {
-            h4.innerText = "Master";
+        if (item.getCardType() === 0 /* MASTER */) {
+            h4.innerText = "Master Card";
+        }
+        else if (item.getCardType() === 1 /* VISA */) {
+            h4.innerText = "Visa card";
         }
         else {
-            h4.innerText = "Visa";
+            h4.innerText = "Unknown card type";
         }
         li.append(h4);
         const p = document.createElement('p');
